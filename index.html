@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тёплый хвост — одежда для маленьких собак и кошек</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF6EF; --paper:#FFFFFF; --ink:#26242C; --muted:#6E6A75; --line:#E9E1D5;
+  --accent:#E2603C; --accent-d:#C44A28; --mustard:#F2B544; --teal:#2F6F6B; --teal-l:#E3F0EE;
+  --warn:#FFF3D6; --warn-b:#F2B544; --ok:#2F8A57; --bad:#C0392B;
+  --r:18px; --shadow:0 10px 30px rgba(38,36,44,.08);
+  --head:'Unbounded', 'Manrope', system-ui, sans-serif;
+  --body:'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(24px,3.2vw,34px)}
+h3{font-size:18px}
+a{color:var(--teal)}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+.eyebrow{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.lead{color:var(--muted);max-width:640px;margin:0 0 28px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;font-weight:700;font-size:15px;text-decoration:none;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-d)}
+.btn-primary:disabled{background:#D9CFC4;color:#fff;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-soft{background:var(--teal-l);color:var(--teal)}
+.btn-soft:hover{background:#cfe5e1}
+.btn-sm{padding:9px 16px;font-size:14px}
+.btn-block{width:100%}
+
+/* header */
+header.top{position:sticky;top:0;z-index:30;background:rgba(251,246,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo-mark{width:36px;height:36px;border-radius:12px;background:var(--accent);display:grid;place-items:center}
+nav.menu{display:flex;gap:22px;margin-left:auto}
+nav.menu a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+nav.menu a:hover{color:var(--accent)}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:10px 16px;font-weight:700}
+.cart-count{min-width:22px;height:22px;border-radius:11px;background:var(--mustard);color:var(--ink);font-size:12px;display:grid;place-items:center;padding:0 6px}
+.burger{display:none;background:none;border:0;padding:8px;margin-left:auto}
+
+/* hero */
+.hero{padding:48px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(30px,4.6vw,52px)}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:18px;color:var(--muted);max-width:540px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 30px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px}
+.perk{background:var(--paper);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.35;box-shadow:var(--shadow)}
+.perk b{display:block;font-size:15px;margin-bottom:2px}
+.hero-art{position:relative;aspect-ratio:1/1;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--mustard);display:grid;place-items:center}
+.hero-art svg{width:88%}
+.hero-tag{position:absolute;background:#fff;border-radius:14px;padding:10px 14px;font-size:13px;font-weight:600;box-shadow:var(--shadow)}
+.hero-tag b{color:var(--accent)}
+
+/* catalog */
+#catalog{background:var(--paper);border-radius:40px 40px 0 0}
+.filters{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;margin-bottom:26px;padding:18px;background:var(--bg);border-radius:var(--r)}
+.fgroup label.fl{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+select,input,textarea{font-family:inherit;font-size:15px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;color:var(--ink);width:100%}
+select:focus,input:focus,textarea:focus{outline:2px solid var(--teal);border-color:transparent}
+.fgroup select{width:auto;min-width:170px}
+.result-line{font-size:14px;color:var(--muted);margin:-8px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.15s}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.card-img{background:var(--bg);aspect-ratio:4/3;display:grid;place-items:center;cursor:pointer;position:relative}
+.card-img svg{width:82%}
+.badge{position:absolute;top:12px;left:12px;background:var(--teal);color:#fff;font-size:12px;font-weight:700;border-radius:8px;padding:4px 8px}
+.badge.alt{background:var(--accent)}
+.card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{margin:0;font-size:16px}
+.card-desc{font-size:14px;color:var(--muted);margin:0}
+.sizes{display:flex;flex-wrap:wrap;gap:5px}
+.sz{font-size:12px;font-weight:700;border:1.5px solid var(--line);border-radius:7px;padding:2px 7px}
+.sz.out{color:#B8B1A8;text-decoration:line-through}
+.stock{font-size:13px;font-weight:600}
+.stock.ok{color:var(--ok)} .stock.part{color:#A56D00}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;margin-top:auto;padding-top:8px}
+.price{font-family:var(--head);font-size:20px;font-weight:700}
+.unit{font-size:12.5px;color:var(--muted)}
+.card-actions{display:flex;gap:8px}
+.card-actions .btn{flex:1}
+.empty{padding:40px;text-align:center;color:var(--muted);background:var(--bg);border-radius:var(--r)}
+
+/* size finder */
+#size{background:var(--paper)}
+.size-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.panel{background:var(--bg);border-radius:var(--r);padding:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.hint{font-size:13px;color:var(--muted)}
+.size-result{margin-top:16px;padding:16px;border-radius:14px;background:#fff;border:2px dashed var(--line);min-height:70px}
+.size-result.done{border:2px solid var(--teal);background:var(--teal-l)}
+.size-result .big{font-family:var(--head);font-size:30px;color:var(--teal)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border-radius:14px;overflow:hidden}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--ink);color:#fff;font-weight:600;font-size:13px}
+tr:last-child td{border-bottom:0}
+.measure{display:flex;gap:16px;align-items:center;margin-top:18px}
+.measure svg{width:170px;flex:none}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+
+/* terms */
+.terms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.tcard{background:#fff;border-radius:var(--r);padding:24px;border:1.5px solid var(--line)}
+.tcard h3{display:flex;align-items:center;gap:10px}
+.ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;font-size:18px}
+.tcard table{font-size:14px;margin-top:6px}
+.tcard td{vertical-align:top}
+.tcard ul{margin:6px 0 0;padding-left:20px}
+.tcard li{margin-bottom:6px}
+.note{background:var(--warn);border-left:4px solid var(--warn-b);border-radius:10px;padding:12px 14px;font-size:14px;margin-top:12px}
+
+/* faq */
+.faq details{background:#fff;border:1.5px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 18px}
+.faq summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:'+';font-size:22px;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:'–'}
+.faq details p, .faq details ol{margin:0 0 16px;color:#3f3c46}
+
+/* contacts */
+#contacts{background:var(--ink);color:#fff}
+#contacts .lead{color:#BEB9C6}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.contact-list{display:grid;gap:14px}
+.citem{background:rgba(255,255,255,.06);border-radius:14px;padding:14px 16px}
+.citem small{display:block;color:#BEB9C6;font-size:13px}
+.citem a,.citem span.v{color:#fff;font-weight:700;font-size:17px;text-decoration:none}
+#contacts .panel{background:#fff;color:var(--ink)}
+footer{background:#1C1B21;color:#9C97A5;font-size:13px;padding:22px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* overlays */
+.overlay{position:fixed;inset:0;background:rgba(20,18,24,.5);z-index:50;display:none}
+.overlay.show{display:block}
+.modal{position:fixed;z-index:60;left:50%;top:50%;transform:translate(-50%,-50%);width:min(940px,calc(100vw - 24px));max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:24px;display:none;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.modal.show{display:block}
+.close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:var(--bg);font-size:22px;line-height:1;z-index:2}
+.pm{display:grid;grid-template-columns:1fr 1fr}
+.pm-img{background:var(--bg);display:grid;place-items:center;padding:24px;border-radius:24px 0 0 24px}
+@media (min-width:901px){.pm-img>svg{position:sticky;top:40px}.pm-img{align-items:start;padding-top:60px}}
+.pm-img svg{width:100%}
+.pm-info{padding:28px 28px 24px}
+.pm-info h2{font-size:24px;padding-right:40px}
+.specs{font-size:14px;margin:12px 0}
+.specs div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.specs span:first-child{color:var(--muted)}
+.specs span:last-child{text-align:right;font-weight:600}
+.opt-title{font-weight:700;font-size:14px;margin:14px 0 8px}
+.swatches{display:flex;gap:10px}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px var(--line)}
+.sw.on{box-shadow:0 0 0 2.5px var(--ink)}
+.size-btns{display:flex;flex-wrap:wrap;gap:8px}
+.sbtn{min-width:56px;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:8px 10px;font-weight:700;font-size:14px;line-height:1.2}
+.sbtn small{display:block;font-weight:500;font-size:11px;color:var(--muted)}
+.sbtn.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.sbtn.on small{color:#ddd}
+.sbtn.out{border-style:dashed;color:#9a938a}
+.sbtn.out.on{background:#6E6A75;border-color:#6E6A75;color:#fff}
+.stock-msg{font-size:14px;margin-top:10px;font-weight:600}
+.oos{background:var(--warn);border:1.5px solid var(--warn-b);border-radius:14px;padding:14px;margin-top:12px;font-size:14px}
+.oos h4{margin:0 0 6px;font-size:15px}
+.oos .opts{display:grid;gap:8px;margin-top:10px}
+.oos .opt{background:#fff;border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.oos .opt p{margin:0;font-size:13px;color:var(--muted)}
+.notify-form{display:flex;gap:6px;margin-top:6px}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px}
+.qty button{width:34px;height:34px;border:0;background:none;font-size:18px;font-weight:700}
+.qty span{min-width:26px;text-align:center;font-weight:700}
+.buy-row{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
+.buy-row .price{font-size:26px}
+.sizetable-mini{font-size:13px;margin-top:10px}
+.sizetable-mini th,.sizetable-mini td{padding:6px 8px}
+.link{background:none;border:0;color:var(--teal);font-weight:700;padding:0;text-decoration:underline;font-size:14px}
+
+/* drawer */
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(430px,100vw);background:#fff;z-index:60;transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column}
+.drawer.show{transform:none}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dr-head h3{margin:0}
+.dr-head .close{position:static}
+.dr-body{flex:1;overflow:auto;padding:12px 22px}
+.dr-foot{border-top:1px solid var(--line);padding:18px 22px;background:var(--bg)}
+.ci{display:grid;grid-template-columns:72px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.ci-img{width:72px;height:60px;background:var(--bg);border-radius:10px;display:grid;place-items:center}
+.ci-img svg{width:64px}
+.ci h4{margin:0 0 2px;font-size:14px}
+.ci .meta{font-size:12.5px;color:var(--muted)}
+.ci .pre{display:inline-block;background:var(--warn);color:#8A5A00;font-size:11.5px;font-weight:700;border-radius:6px;padding:1px 6px;margin-top:3px}
+.ci-right{text-align:right;display:grid;gap:6px;justify-items:end}
+.ci-right .qty button{width:28px;height:28px;font-size:16px}
+.rm{background:none;border:0;color:var(--muted);font-size:12px;text-decoration:underline;padding:0}
+.sumline{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px}
+.sumline.total{font-family:var(--head);font-size:19px;margin-top:8px}
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0 4px}
+.progress i{display:block;height:100%;background:var(--teal)}
+
+/* checkout */
+.co{display:grid;grid-template-columns:1.25fr .75fr}
+.co-main{padding:28px}
+.co-side{background:var(--bg);padding:28px;border-radius:0 24px 24px 0}
+.step{margin-bottom:22px}
+.step h3{display:flex;align-items:center;gap:10px;font-size:16px}
+.step h3 i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:13px;font-family:var(--body)}
+.radio{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
+.radio input{width:auto;margin-top:4px;accent-color:var(--accent)}
+.radio b{display:block;font-size:15px}
+.radio span{font-size:13px;color:var(--muted)}
+.radio .pr{margin-left:auto;font-weight:700;white-space:nowrap}
+.radio.dis{opacity:.45;cursor:not-allowed}
+.radio:has(input:checked){border-color:var(--ink);background:#FCFAF7}
+.err{color:var(--bad);font-size:12.5px;margin-top:4px;display:none}
+.field.bad input,.field.bad select{border-color:var(--bad)}
+.field.bad .err{display:block}
+.field{margin-bottom:12px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.check input{width:auto;margin-top:3px}
+.mini-items{font-size:14px;margin-bottom:12px}
+.mini-items div{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.mini-items b{white-space:nowrap}
+.success{padding:40px 32px;text-align:center}
+.success .big{font-size:52px}
+.success ol{text-align:left;max-width:520px;margin:16px auto;padding-left:20px}
+.success li{margin-bottom:8px}
+.pay-box{max-width:420px;margin:18px auto;background:var(--bg);border-radius:18px;padding:20px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;z-index:80;transition:.25s;font-size:14px}
+.toast.show{transform:translateX(-50%)}
+.demo{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+
+@media (max-width:900px){
+  nav.menu{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px 20px;gap:14px;border-bottom:1px solid var(--line)}
+  nav.menu.open{display:flex}
+  .burger{display:block}
+  .cart-btn .lbl{display:none}
+  .hero .wrap,.size-grid,.terms-grid,.contact-grid,.pm,.co{grid-template-columns:1fr}
+  .hero-art{max-width:380px;margin:0 auto;width:100%}
+  .hero-tag{font-size:12px}
+  .hero-tag:first-of-type{left:0!important}
+  .hero-tag:nth-of-type(2){right:0!important}
+  .pm-img{border-radius:24px 24px 0 0;padding:16px}
+  .pm-img svg{max-width:300px}
+  .co-side{border-radius:0 0 24px 24px}
+  section{padding:48px 0}
+}
+@media (max-width:560px){
+  .perks{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .filters{gap:12px}
+  .fgroup select{width:100%}
+  .fgroup{width:100%}
+  .measure{flex-direction:column;align-items:flex-start}
+  .pm-info,.co-main,.co-side{padding:20px}
+  .modal{top:auto;bottom:0;transform:translateX(-50%);border-radius:24px 24px 0 0;max-height:92vh;width:100vw}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Тёплый хвост — на главную">
+      <span class="logo-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><ellipse cx="6" cy="9" rx="2.2" ry="3"/><ellipse cx="10.5" cy="5.5" rx="2.2" ry="3"/><ellipse cx="15.5" cy="5.5" rx="2.2" ry="3"/><ellipse cx="20" cy="9" rx="2.2" ry="3"/><path d="M13 11c-4 0-7 4-7 7 0 2 1.6 3 3.4 3 1.4 0 2.3-.7 3.6-.7s2.2.7 3.6.7c1.8 0 3.4-1 3.4-3 0-3-3-7-7-7z"/></svg></span>
+      Тёплый хвост
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#size">Подбор размера</a>
+      <a href="#terms">Доставка и оплата</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#26242C" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="cart-btn" id="cartBtn" aria-label="Корзина">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="lbl">Корзина</span><span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Санкт-Петербург · доставка по России</span>
+      <h1>Одежда для маленьких собак <span>под петербургскую погоду</span></h1>
+      <p>Дождевики, зимние комбинезоны и свитера для чихуахуа, той-терьеров, йорков, шпицев и такс. Поможем угадать с размером, а если не подойдёт — первый обмен за наш счёт.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#catalog">Выбрать одежду</a>
+        <a class="btn btn-ghost" href="#size">Подобрать размер за 1 минуту</a>
+      </div>
+      <div class="perks">
+        <div class="perk"><b>Обмен размера</b>первый — бесплатно, 14 дней</div>
+        <div class="perk"><b>Курьер по СПб</b>на следующий день, примерка 15 минут</div>
+        <div class="perk"><b>Нет размера?</b>сошьём за 7 рабочих дней по той же цене</div>
+      </div>
+    </div>
+    <div class="hero-art" id="heroArt">
+      <div class="hero-tag" style="top:10%;left:-4%">до <b>−20 °C</b> в «Купчино»</div>
+      <div class="hero-tag" style="bottom:12%;right:-2%">мембрана <b>3000 мм</b> в «Невском»</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog">
+  <div class="wrap">
+    <span class="eyebrow">Каталог</span>
+    <h2>Что носить в слякоть и мороз</h2>
+    <p class="lead">Цена указана за одну вещь (ботинки — за комплект из 4 штук). Наличие показано по каждому размеру; если размера нет, его можно заказать в пошив.</p>
+
+    <div class="filters">
+      <div class="fgroup">
+        <label class="fl">Тип одежды</label>
+        <div class="chips" id="fType">
+          <button class="chip on" data-v="all">Все</button>
+          <button class="chip" data-v="rain">Дождевики</button>
+          <button class="chip" data-v="winter">Утеплённое</button>
+          <button class="chip" data-v="knit">Трикотаж</button>
+          <button class="chip" data-v="acc">Аксессуары</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label class="fl">Питомец</label>
+        <div class="chips" id="fPet">
+          <button class="chip on" data-v="all">Все</button>
+          <button class="chip" data-v="dog">Собаки</button>
+          <button class="chip" data-v="cat">Кошки</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label class="fl" for="fSize">Размер в наличии</label>
+        <select id="fSize">
+          <option value="any">Любой</option>
+          <option value="XS">XS — спина 20–24 см</option>
+          <option value="S">S — спина 25–29 см</option>
+          <option value="M">M — спина 30–34 см</option>
+          <option value="L">L — спина 35–40 см</option>
+        </select>
+      </div>
+      <div class="fgroup">
+        <label class="fl" for="fSort">Сортировка</label>
+        <select id="fSort">
+          <option value="pop">Сначала популярные</option>
+          <option value="asc">Цена: по возрастанию</option>
+          <option value="desc">Цена: по убыванию</option>
+        </select>
+      </div>
+    </div>
+    <p class="result-line" id="resultLine"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- SIZE -->
+<section id="size">
+  <div class="wrap">
+    <span class="eyebrow">Подбор размера</span>
+    <h2>Два замера — и размер известен</h2>
+    <p class="lead">Чаще всего одежду возвращают из-за размера, поэтому мы подбираем его по двум меркам, а не по весу или породе.</p>
+    <div class="size-grid">
+      <div class="panel">
+        <h3>Калькулятор размера</h3>
+        <div class="hint" style="margin-bottom:8px">Быстрый старт по породе (средние значения, лучше всё же измерить):</div>
+        <div class="presets" id="presets">
+          <button class="chip" data-b="22" data-c="31">Чихуахуа</button>
+          <button class="chip" data-b="23" data-c="32">Той-терьер</button>
+          <button class="chip" data-b="27" data-c="37">Йорк</button>
+          <button class="chip" data-b="28" data-c="40">Шпиц</button>
+          <button class="chip" data-b="38" data-c="42" data-long="1">Такса мини</button>
+          <button class="chip" data-b="36" data-c="52">Мопс</button>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="mBack">Длина спины, см</label><input id="mBack" type="number" min="10" max="70" placeholder="напр. 27"></div>
+          <div class="field"><label for="mChest">Обхват груди, см</label><input id="mChest" type="number" min="15" max="90" placeholder="напр. 37"></div>
+        </div>
+        <button class="btn btn-primary btn-block" id="calcBtn">Узнать размер</button>
+        <div class="size-result" id="sizeResult"><span class="hint">Введите обе мерки — покажем размер и подходящие модели.</span></div>
+        <div class="measure">
+          <svg viewBox="0 0 220 150" aria-label="Схема замеров">
+            <g id="measureDog"></g>
+            <path d="M78 40 L172 40" stroke="#E2603C" stroke-width="3" stroke-dasharray="6 4"/>
+            <circle cx="78" cy="40" r="4" fill="#E2603C"/><circle cx="172" cy="40" r="4" fill="#E2603C"/>
+            <text x="100" y="32" font-size="12" font-weight="700" fill="#E2603C" font-family="Manrope, sans-serif">спина</text>
+            <ellipse cx="95" cy="80" rx="9" ry="27" fill="none" stroke="#2F6F6B" stroke-width="3" stroke-dasharray="6 4"/>
+            <text x="108" y="118" font-size="12" font-weight="700" fill="#2F6F6B" font-family="Manrope, sans-serif">грудь</text>
+          </svg>
+          <div class="hint"><b style="color:#E2603C">Спина</b> — от основания шеи (где ошейник) до основания хвоста.<br><b style="color:#2F6F6B">Грудь</b> — по самой широкой части, сразу за передними лапами. Сантиметр не затягивайте: под ним должен проходить палец.</div>
+        </div>
+      </div>
+      <div>
+        <h3>Размерная сетка (собаки)</h3>
+        <table>
+          <thead><tr><th>Размер</th><th>Спина, см</th><th>Грудь, см</th><th>Обычно подходит</th></tr></thead>
+          <tbody>
+            <tr><td><b>XS</b></td><td>20–24</td><td>28–34</td><td>чихуахуа, той-терьер</td></tr>
+            <tr><td><b>S</b></td><td>25–29</td><td>34–40</td><td>йорк, мальтипу, шпиц</td></tr>
+            <tr><td><b>M</b></td><td>30–34</td><td>40–47</td><td>ши-тцу, пекинес, джек-рассел</td></tr>
+            <tr><td><b>L</b></td><td>35–40</td><td>47–55</td><td>мопс, бишон, вельш-корги-щенок</td></tr>
+          </tbody>
+        </table>
+        <h3 style="margin-top:22px">Особые сетки</h3>
+        <table>
+          <thead><tr><th>Модель</th><th>Размер</th><th>Мерки, см</th></tr></thead>
+          <tbody>
+            <tr><td>Комбинезон «Длинный» (таксы)</td><td>Мини / Стандарт</td><td>спина 30–38 / 39–46</td></tr>
+            <tr><td>Водолазка «Сфинкс» (кошки)</td><td>S / M</td><td>грудь 30–36 / 37–43</td></tr>
+            <tr><td>Ботинки «Брусчатка»</td><td>1 / 2 / 3</td><td>ширина лапы 3,5 / 4,5 / 5,5</td></tr>
+            <tr><td>Снуд «Белые ночи»</td><td>S / M</td><td>шея 20–26 / 27–33</td></tr>
+          </tbody>
+        </table>
+        <div class="note">Мерки на границе двух размеров? Для дождевика и толстовки берите меньший, для зимнего комбинезона и свитера — больший: под ними бывает густой подшёрсток.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section id="terms">
+  <div class="wrap">
+    <span class="eyebrow">Условия</span>
+    <h2>Оплата, доставка, обмен и возврат</h2>
+    <p class="lead">Эти же условия и суммы показываются в корзине и при оформлении — итог заказа виден до подтверждения.</p>
+    <div class="terms-grid">
+      <div class="tcard">
+        <h3><span class="ico" style="background:#FDE3D9">🚚</span>Доставка</h3>
+        <table>
+          <thead><tr><th>Способ</th><th>Срок</th><th>Стоимость</th></tr></thead>
+          <tbody>
+            <tr><td><b>Курьер по СПб</b><br><span class="hint">в пределах КАД, интервал 3 часа с 10 до 22</span></td><td>на следующий день</td><td>350 ₽<br><span class="hint">бесплатно от 5 000 ₽</span></td></tr>
+            <tr><td><b>Пункт выдачи СДЭК</b><br><span class="hint">СПб и Ленобласть</span></td><td>1–2 дня</td><td>250 ₽</td></tr>
+            <tr><td><b>Пункт выдачи СДЭК</b><br><span class="hint">другие города России</span></td><td>3–7 дней</td><td>450 ₽</td></tr>
+            <tr><td><b>Самовывоз из шоурума</b><br><span class="hint">м. Чернышевская, хранение 5 дней</span></td><td>в день заказа, если до 16:00</td><td>бесплатно</td></tr>
+          </tbody>
+        </table>
+        <div class="note">Пошив отсутствующего размера добавляет к сроку 7 рабочих дней; если в заказе есть пошив, все вещи отправляем вместе, когда он готов. Курьер ждёт 15 минут, пока вы примеряете вещь на питомца: что не подошло — сразу отдаёте обратно и платите только за доставку.</div>
+      </div>
+      <div class="tcard">
+        <h3><span class="ico" style="background:#E3F0EE">💳</span>Оплата</h3>
+        <ul>
+          <li><b>Онлайн картой (Мир, Visa, Mastercard) или по СБП</b> — сразу после оформления заказа. Доступна для любого способа доставки.</li>
+          <li><b>При получении картой или наличными</b> — только курьером по СПб и при самовывозе.</li>
+          <li><b>Пошив под заказ</b> — оплата онлайн после звонка менеджера: он сверит мерки (в течение 2 рабочих часов) и пришлёт ссылку на оплату. Пошив начинается после оплаты.</li>
+          <li>Чек приходит на e-mail или в SMS. Скрытых платежей нет: итог в корзине = сумма к оплате.</li>
+        </ul>
+        <div class="note">Неоплаченный онлайн-заказ резервируется на 24 часа: ссылка на оплату остаётся в письме.</div>
+      </div>
+      <div class="tcard">
+        <h3><span class="ico" style="background:#FFF0C9">🔁</span>Обмен и возврат</h3>
+        <ul>
+          <li><b>14 дней</b> с момента получения на обмен или возврат, если вещь не носили на улице и сохранены бирки (по закону для покупок онлайн — 7 дней, мы даём больше).</li>
+          <li><b>Первый обмен размера — бесплатно:</b> по СПб курьер привезёт новый размер и заберёт старый, в другие города отправим новый размер за наш счёт.</li>
+          <li><b>Возврат денег</b> — в течение 10 дней тем же способом, которым платили. Стоимость доставки не возвращается, кроме случаев брака.</li>
+          <li><b>Брак</b> (шов, молния, кнопки) — пришлите фото в течение 60 дней: заменим или вернём деньги вместе с доставкой.</li>
+        </ul>
+      </div>
+      <div class="tcard">
+        <h3><span class="ico" style="background:#EDE7F6">✏️</span>Изменение и отмена заказа</h3>
+        <ul>
+          <li><b>До передачи в доставку</b> можно поменять размер, цвет, адрес или отменить заказ бесплатно — напишите в форму на сайте или позвоните.</li>
+          <li><b>После отправки</b> заказ можно не выкупить: при оплате онлайн вернём деньги за товар, удержав стоимость доставки.</li>
+          <li><b>Перенос курьерской доставки</b> — бесплатно, если сообщить до 20:00 накануне.</li>
+          <li><b>Пошив под заказ</b> отменяется бесплатно до начала пошива; после — на общих условиях возврата.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <span class="eyebrow">Если что-то пошло не так</span>
+    <h2>Частые ситуации</h2>
+    <details>
+      <summary>Нужного размера нет в наличии</summary>
+      <ol>
+        <li>В карточке товара выберите размер с пометкой «нет» — появятся три варианта.</li>
+        <li><b>Сшить под заказ</b> — тот же размер и цвет, та же цена, +7 рабочих дней. Менеджер позвонит и сверит мерки, после этого — оплата и пошив.</li>
+        <li><b>Сообщить о поступлении</b> — оставьте e-mail, напишем, когда размер вернётся на склад (обычно 2–3 недели).</li>
+        <li><b>Посмотреть похожие</b> — покажем модели того же типа, где ваш размер есть.</li>
+      </ol>
+    </details>
+    <details>
+      <summary>Оплата не прошла</summary>
+      <p>Заказ не отменяется: он зарезервирован на 24 часа. Повторите оплату по ссылке из письма или выберите СБП вместо карты. Если деньги списались, а статус «не оплачен», — напишите нам номер заказа, проверим платёж за 1 рабочий день.</p>
+    </details>
+    <details>
+      <summary>Размер не подошёл</summary>
+      <p>При курьерской доставке верните вещь курьеру во время примерки. Если уже приняли заказ — напишите нам в течение 14 дней: первый обмен размера бесплатный.</p>
+    </details>
+    <details>
+      <summary>Ошибся в адресе или телефоне</summary>
+      <p>Напишите в форму «Связаться» номер заказа и правильные данные. До передачи в доставку исправим бесплатно; если заказ уже в СДЭК — переадресуем на другой пункт в том же городе.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="wrap">
+    <span class="eyebrow">Контакты</span>
+    <h2>Поможем с размером и заказом</h2>
+    <p class="lead">Отвечаем ежедневно с 10:00 до 21:00. Вопросы о размере лучше присылать вместе с мерками и породой.</p>
+    <div class="contact-grid">
+      <div class="contact-list">
+        <div class="citem"><small>Телефон</small><a href="tel:+78125552417">+7 (812) 555-24-17</a></div>
+        <div class="citem"><small>E-mail</small><a href="mailto:hello@teplyhvost.ru">hello@teplyhvost.ru</a></div>
+        <div class="citem"><small>Шоурум и самовывоз</small><span class="v">Санкт-Петербург, ул. Кирочная, 24 · м. Чернышевская</span><small style="margin-top:4px">Пн–Пт 11:00–20:00, Сб–Вс 12:00–18:00 · можно прийти с питомцем на примерку</small></div>
+      </div>
+      <div class="panel">
+        <h3>Связаться с нами</h3>
+        <form id="askForm" novalidate>
+          <div class="field" data-f="name"><label for="aName">Имя</label><input id="aName" autocomplete="name"><div class="err">Укажите имя</div></div>
+          <div class="field" data-f="contact"><label for="aContact">Телефон или e-mail для ответа</label><input id="aContact"><div class="err">Укажите телефон или e-mail</div></div>
+          <div class="field"><label for="aTopic">Тема</label>
+            <select id="aTopic"><option>Подбор размера</option><option>Изменить или отменить заказ</option><option>Обмен и возврат</option><option>Пошив под заказ</option><option>Другое</option></select></div>
+          <div class="field" data-f="msg"><label for="aMsg">Сообщение</label><textarea id="aMsg" rows="3" placeholder="Порода, мерки, номер заказа — всё, что поможет ответить быстрее"></textarea><div class="err">Напишите сообщение</div></div>
+          <button class="btn btn-primary btn-block" type="submit">Отправить</button>
+          <div id="askDone" class="note" style="display:none"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 «Тёплый хвост» — одежда для маленьких собак и кошек</span>
+    <span>Учебный проект: заказы не обрабатываются, оплата не списывается.</span>
+  </div>
+</footer>
+
+<!-- OVERLAYS -->
+<div class="overlay" id="overlay"></div>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true"></div>
+
+<aside class="drawer" id="drawer" aria-label="Корзина">
+  <div class="dr-head"><h3>Корзина</h3><button class="close" data-close aria-label="Закрыть">×</button></div>
+  <div class="dr-body" id="drBody"></div>
+  <div class="dr-foot" id="drFoot"></div>
+</aside>
+
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true"></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- DATA ---------- */
+const DOG_SIZES = {XS:'спина 20–24', S:'спина 25–29', M:'спина 30–34', L:'спина 35–40'};
+const PRODUCTS = [
+  {id:'nevsky', name:'Дождевик «Невский»', type:'rain', pet:'dog', kind:'raincoat', price:2190, unit:'за 1 шт', pop:1, badge:'Хит осени',
+   desc:'Лёгкий непромокаемый дождевик с капюшоном и светоотражающим кантом.',
+   colors:[{n:'Жёлтый',c:'#F2B544'},{n:'Графит',c:'#4A4E57'}],
+   sizes:[{s:'XS',h:DOG_SIZES.XS,q:5},{s:'S',h:DOG_SIZES.S,q:8},{s:'M',h:DOG_SIZES.M,q:0},{s:'L',h:DOG_SIZES.L,q:3}],
+   specs:[['Материал','мембрана 3000 мм, без подкладки'],['Погода','дождь, +5…+18 °C'],['Застёжка','кнопки на животе'],['Детали','съёмный капюшон, отверстие под шлейку, светоотражающий кант'],['Уход','ручная стирка 30 °C']]},
+  {id:'kupchino', name:'Комбинезон «Купчино»', type:'winter', pet:'dog', kind:'jumpsuit', price:3790, unit:'за 1 шт', pop:2, badge:'до −20 °C',
+   desc:'Тёплый зимний комбинезон на четыре лапы — защищает живот от реагентов и снега.',
+   colors:[{n:'Терракота',c:'#E2603C'},{n:'Тёмно-синий',c:'#2E3A59'}],
+   sizes:[{s:'XS',h:DOG_SIZES.XS,q:2},{s:'S',h:DOG_SIZES.S,q:4},{s:'M',h:DOG_SIZES.M,q:6},{s:'L',h:DOG_SIZES.L,q:0}],
+   specs:[['Материал','верх — мембрана, утеплитель 100 г/м², подклад — флис'],['Погода','снег, мороз до −20 °C'],['Застёжка','молния по спине'],['Детали','манжеты на лапах, отверстие под шлейку, светоотражатели'],['Уход','деликатная стирка 30 °C']]},
+  {id:'dlinny', name:'Комбинезон для такс «Длинный»', type:'winter', pet:'dog', kind:'jumpsuit', long:true, price:4190, unit:'за 1 шт', pop:5,
+   desc:'Зимний комбинезон с удлинённой спиной и короткими штанинами — крой под таксу.',
+   colors:[{n:'Хаки',c:'#6B7A4B'},{n:'Терракота',c:'#E2603C'}],
+   sizes:[{s:'Мини',h:'спина 30–38',q:3},{s:'Стандарт',h:'спина 39–46',q:0}],
+   specs:[['Материал','мембрана, утеплитель 100 г/м², флис'],['Погода','снег, мороз до −20 °C'],['Застёжка','молния по спине, 2 бегунка'],['Детали','усиленный живот, отверстие под шлейку'],['Уход','деликатная стирка 30 °C']]},
+  {id:'finsky', name:'Свитер «Финский залив»', type:'knit', pet:'dog', kind:'sweater', price:1690, unit:'за 1 шт', pop:3,
+   desc:'Вязаный свитер с высоким горлом — под дождевик или для прохладной квартиры.',
+   colors:[{n:'Молочный',c:'#EFE6D6'},{n:'Бордо',c:'#8C2F39'}],
+   sizes:[{s:'XS',h:DOG_SIZES.XS,q:6},{s:'S',h:DOG_SIZES.S,q:7},{s:'M',h:DOG_SIZES.M,q:4},{s:'L',h:DOG_SIZES.L,q:2}],
+   specs:[['Состав','50% шерсть мериноса, 50% акрил'],['Погода','дома и под верхнюю одежду, 0…+12 °C'],['Застёжка','надевается через голову'],['Детали','высокое горло, не колется'],['Уход','ручная стирка 30 °C, сушить горизонтально']]},
+  {id:'okhta', name:'Толстовка «Охта»', type:'knit', pet:'dog', kind:'hoodie', price:1290, unit:'за 1 шт', pop:4,
+   desc:'Мягкая флисовая толстовка с капюшоном для сухой прохладной погоды.',
+   colors:[{n:'Мята',c:'#8FC9B9'},{n:'Серый меланж',c:'#A9A9AE'}],
+   sizes:[{s:'XS',h:DOG_SIZES.XS,q:4},{s:'S',h:DOG_SIZES.S,q:0},{s:'M',h:DOG_SIZES.M,q:5},{s:'L',h:DOG_SIZES.L,q:3}],
+   specs:[['Материал','флис 220 г/м²'],['Погода','сухо, +8…+15 °C, дома'],['Застёжка','надевается через голову'],['Детали','капюшон, отверстие под шлейку'],['Уход','машинная стирка 30 °C']]},
+  {id:'veter', name:'Жилет-попона «Ветер»', type:'rain', pet:'dog', kind:'vest', price:1890, unit:'за 1 шт', pop:6,
+   desc:'Ветрозащитный жилет из софтшелла: быстро надеть, удобно на прогулке со шлейкой.',
+   colors:[{n:'Оранжевый',c:'#F07B2D'},{n:'Чёрный',c:'#2B2A30'}],
+   sizes:[{s:'XS',h:DOG_SIZES.XS,q:3},{s:'S',h:DOG_SIZES.S,q:5},{s:'M',h:DOG_SIZES.M,q:2},{s:'L',h:DOG_SIZES.L,q:4}],
+   specs:[['Материал','софтшелл на микрофлисе'],['Погода','ветер, морось, 0…+12 °C'],['Застёжка','липучки на груди и животе'],['Детали','кольцо для поводка на спине'],['Уход','машинная стирка 30 °C']]},
+  {id:'bruschatka', name:'Ботинки «Брусчатка»', type:'acc', pet:'dog', kind:'boots', price:1190, unit:'за комплект 4 шт', pop:7,
+   desc:'Защищают подушечки лап от реагентов и соли. Нескользящая подошва.',
+   colors:[{n:'Красный',c:'#C8443A'},{n:'Чёрный',c:'#2B2A30'}],
+   sizes:[{s:'1',h:'лапа 3,5 см',q:6},{s:'2',h:'лапа 4,5 см',q:5},{s:'3',h:'лапа 5,5 см',q:2}],
+   specs:[['Материал','неопрен, резиновая подошва'],['Погода','реагенты, слякоть, снег'],['Застёжка','липучка на щиколотке'],['В комплекте','4 ботинка'],['Уход','промыть тёплой водой']]},
+  {id:'sfinks', name:'Водолазка для кошек «Сфинкс»', type:'knit', pet:'cat', kind:'catsweater', price:1390, unit:'за 1 шт', pop:8,
+   desc:'Тонкая тянущаяся водолазка для бесшёрстных кошек — дома в отопительный сезон.',
+   colors:[{n:'Пудровый',c:'#E8B4B8'},{n:'Графит',c:'#4A4E57'}],
+   sizes:[{s:'S',h:'грудь 30–36',q:4},{s:'M',h:'грудь 37–43',q:3}],
+   specs:[['Состав','95% хлопок, 5% эластан'],['Погода','дома, при +18…+22 °C'],['Застёжка','надевается через голову'],['Детали','плоские швы, не натирает подмышки'],['Уход','машинная стирка 30 °C']]},
+  {id:'snud', name:'Снуд «Белые ночи»', type:'acc', pet:'dog', kind:'snood', price:690, unit:'за 1 шт', pop:9,
+   desc:'Вязаный снуд прикрывает уши и шею. Хорошо сочетается с комбинезоном.',
+   colors:[{n:'Мята',c:'#8FC9B9'},{n:'Горчица',c:'#E9A93A'}],
+   sizes:[{s:'S',h:'шея 20–26',q:9},{s:'M',h:'шея 27–33',q:6}],
+   specs:[['Состав','100% акрил'],['Погода','ветер и мороз'],['Застёжка','без застёжек'],['Детали','прикрывает уши, не мешает слуху'],['Уход','ручная стирка 30 °C']]}
+];
+const TYPE_NAMES = {rain:'Дождевики', winter:'Утеплённое', knit:'Трикотаж', acc:'Аксессуары'};
+const DELIVERY = {
+  courier:{name:'Курьер по СПб', price:350, free:5000, term:'на следующий день, интервал 3 часа', cod:true},
+  cdek_spb:{name:'ПВЗ СДЭК — СПб и Ленобласть', price:250, term:'1–2 дня', cod:false},
+  cdek_ru:{name:'ПВЗ СДЭК — другие города России', price:450, term:'3–7 дней', cod:false},
+  pickup:{name:'Самовывоз из шоурума', price:0, term:'в день заказа, если до 16:00', cod:true}
+};
+const FREE_FROM = 5000;
+
+/* ---------- SVG ILLUSTRATIONS ---------- */
+function svgFor(p, color, opts={}){
+  const fur = opts.fur || '#E8C9A0', furD='#C9A47A', ink='#26242C';
+  const long = !!p.long;
+  if(p.kind==='catsweater') return catSvg(color);
+  const bx = long?112:105, brx = long?70:50, legY = long?92:90, legH = long?26:38;
+  const legsX = long?[50,68,150,168]:[70,88,122,140];
+  const tailX = long?182:154;
+  let s = `<svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg">`;
+  s += `<ellipse cx="110" cy="${legY+legH+6}" rx="${long?95:72}" ry="6" fill="rgba(0,0,0,.08)"/>`;
+  // tail
+  s += `<path d="M${tailX} 72 Q${tailX+22} 52 ${tailX+14} 36" stroke="${fur}" stroke-width="9" fill="none" stroke-linecap="round"/>`;
+  // legs
+  legsX.forEach(x=>{ s+=`<rect x="${x}" y="${legY-6}" width="12" height="${legH+6}" rx="6" fill="${fur}"/>`; });
+  // body
+  s += `<ellipse cx="${bx}" cy="76" rx="${brx}" ry="25" fill="${fur}"/>`;
+  // neck
+  const hx = long?36:50;
+  s += `<path d="M${hx+6} 50 L${bx-brx+22} 62 L${bx-brx+16} 92 L${hx+2} 72 Z" fill="${fur}"/>`;
+  // head
+  s += `<circle cx="${hx}" cy="52" r="20" fill="${fur}"/>`;
+  s += `<ellipse cx="${hx-17}" cy="60" rx="11" ry="8" fill="${fur}"/>`;
+  s += long ? `<path d="M${hx+4} 38 Q${hx+20} 44 ${hx+14} 74 Q${hx+4} 66 ${hx+2} 42Z" fill="${furD}"/>`
+            : `<path d="M${hx-8} 38 L${hx} 14 L${hx+12} 38 Z" fill="${fur}"/><path d="M${hx-3} 34 L${hx} 22 L${hx+6} 34 Z" fill="#F2B8A2"/>`;
+  s += `<circle cx="${hx-5}" cy="49" r="2.8" fill="${ink}"/><circle cx="${hx-27}" cy="57" r="3.4" fill="${ink}"/>`;
+  s += `<path d="M${hx-24} 66 Q${hx-19} 69 ${hx-14} 66" stroke="${ink}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`;
+  // garments
+  const L = legsX, top = 51, bottom = 101;
+  const dark = shade(color,-0.18);
+  if(p.kind==='jumpsuit'){
+    L.forEach(x=>{ s+=`<rect x="${x-1}" y="${legY-6}" width="14" height="${legH-8}" rx="6" fill="${color}"/><rect x="${x-1}" y="${legY+legH-18}" width="14" height="5" rx="2" fill="${dark}"/>`; });
+    s += `<ellipse cx="${bx}" cy="76" rx="${brx+2}" ry="27" fill="${color}"/>`;
+    s += `<path d="M${hx+6} 48 L${bx-brx+24} 58 L${bx-brx+18} 95 L${hx+1} 74 Z" fill="${color}"/>`;
+    s += `<rect x="${hx-2}" y="62" width="16" height="10" rx="5" transform="rotate(-20 ${hx+6} 67)" fill="${dark}"/>`;
+    s += `<line x1="${bx-brx+20}" y1="56" x2="${bx+brx-10}" y2="56" stroke="${dark}" stroke-width="2" stroke-dasharray="3 3"/>`;
+    s += `<path d="M${bx-brx+14} 84 Q${bx} 96 ${bx+brx-6} 82" stroke="#fff" stroke-width="2.4" fill="none" opacity=".8"/>`;
+  }
+  if(p.kind==='raincoat'){
+    s += `<path d="M${hx+4} 46 Q${hx+30} 40 ${bx-brx+20} 52 Q${bx} 44 ${bx+brx+4} 66 L${bx+brx} 90 Q${bx} 98 ${bx-brx+12} 92 L${hx+4} 76 Z" fill="${color}"/>`;
+    s += `<path d="M${hx-12} 40 Q${hx+2} 22 ${hx+22} 38 L${hx+14} 66 Q${hx+8} 50 ${hx-12} 40Z" fill="${color}"/>`;
+    s += `<path d="M${bx-brx+14} 90 Q${bx} 98 ${bx+brx-2} 88" stroke="#fff" stroke-width="3" fill="none" opacity=".9"/>`;
+    s += `<circle cx="${bx-12}" cy="88" r="2.4" fill="${dark}"/><circle cx="${bx+8}" cy="89" r="2.4" fill="${dark}"/>`;
+  }
+  if(p.kind==='sweater' || p.kind==='hoodie'){
+    s += `<ellipse cx="${bx-6}" cy="76" rx="${brx-8}" ry="27" fill="${color}"/>`;
+    s += `<path d="M${hx+6} 48 L${bx-brx+24} 58 L${bx-brx+18} 95 L${hx+1} 74 Z" fill="${color}"/>`;
+    if(p.kind==='sweater'){
+      s += `<rect x="${hx}" y="44" width="18" height="34" rx="8" transform="rotate(-25 ${hx+9} 61)" fill="${dark}"/>`;
+      for(let i=0;i<4;i++){ s+=`<path d="M${bx-brx+30+i*16} 58 l6 8 l6 -8" stroke="${dark}" stroke-width="2" fill="none"/>`; s+=`<path d="M${bx-brx+30+i*16} 78 l6 8 l6 -8" stroke="${dark}" stroke-width="2" fill="none"/>`; }
+    } else {
+      s += `<path d="M${hx+10} 40 Q${hx+34} 30 ${hx+40} 56 Q${hx+24} 62 ${hx+12} 54Z" fill="${dark}"/>`;
+      s += `<rect x="${bx-20}" y="80" width="30" height="14" rx="5" fill="${dark}" opacity=".6"/>`;
+    }
+    s += `<rect x="${bx+brx-22}" y="86" width="14" height="8" rx="3" fill="${dark}"/>`;
+  }
+  if(p.kind==='vest'){
+    s += `<path d="M${bx-brx+14} 54 Q${bx-10} 46 ${bx+18} 52 L${bx+14} 100 Q${bx-14} 104 ${bx-brx+16} 96 Z" fill="${color}"/>`;
+    s += `<path d="M${hx+6} 48 L${bx-brx+24} 56 L${bx-brx+18} 95 L${hx+1} 74 Z" fill="${color}"/>`;
+    s += `<circle cx="${bx-2}" cy="49" r="5" fill="none" stroke="#9aa0a6" stroke-width="3"/>`;
+    s += `<line x1="${bx-brx+20}" y1="92" x2="${bx+10}" y2="96" stroke="#fff" stroke-width="2.5" opacity=".8"/>`;
+  }
+  if(p.kind==='boots'){
+    L.forEach(x=>{ s+=`<rect x="${x-2}" y="${legY+legH-16}" width="16" height="18" rx="5" fill="${color}"/><rect x="${x-3}" y="${legY+legH-1}" width="18" height="5" rx="2" fill="${ink}"/><rect x="${x-2}" y="${legY+legH-14}" width="16" height="4" fill="${dark}"/>`; });
+  }
+  if(p.kind==='snood'){
+    s += `<path d="M${hx-10} 34 Q${hx+8} 26 ${hx+22} 40 L${hx+30} 78 Q${hx+10} 84 ${hx-2} 70 Z" fill="${color}"/>`;
+    for(let i=0;i<4;i++) s+=`<line x1="${hx-4+i*7}" y1="${36+i*1}" x2="${hx+4+i*7}" y2="${76-i*2}" stroke="${dark}" stroke-width="2"/>`;
+  }
+  s += `</svg>`;
+  return s;
+}
+function catSvg(color){
+  const fur='#D9B8A6', ink='#26242C', dark=shade(color,-0.18);
+  return `<svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="110" cy="138" rx="72" ry="6" fill="rgba(0,0,0,.08)"/>
+  <path d="M156 92 Q196 92 190 50 Q188 34 178 30" stroke="${fur}" stroke-width="8" fill="none" stroke-linecap="round"/>
+  ${[72,90,124,142].map(x=>`<rect x="${x}" y="88" width="11" height="46" rx="5.5" fill="${fur}"/>`).join('')}
+  <ellipse cx="108" cy="80" rx="52" ry="23" fill="${fur}"/>
+  <path d="M56 52 L80 62 L74 96 L52 74Z" fill="${fur}"/>
+  <circle cx="50" cy="50" r="19" fill="${fur}"/>
+  <path d="M34 40 L32 12 L52 32Z" fill="${fur}"/><path d="M52 32 L66 10 L68 40Z" fill="${fur}"/>
+  <path d="M37 34 L36 20 L46 31Z" fill="#F2B8A2"/><path d="M57 31 L64 19 L65 36Z" fill="#F2B8A2"/>
+  <ellipse cx="42" cy="49" rx="2.6" ry="4" fill="${ink}"/><ellipse cx="58" cy="49" rx="2.6" ry="4" fill="${ink}"/>
+  <path d="M47 57 L50 60 L53 57Z" fill="#E08A8A"/>
+  <ellipse cx="104" cy="80" rx="46" ry="25" fill="${color}"/>
+  <path d="M58 50 L82 60 L78 98 L54 76Z" fill="${color}"/>
+  <rect x="52" y="60" width="20" height="16" rx="7" transform="rotate(-25 62 68)" fill="${dark}"/>
+  ${[0,1,2,3,4].map(i=>`<line x1="${74+i*14}" y1="62" x2="${74+i*14}" y2="98" stroke="${dark}" stroke-width="1.6" opacity=".5"/>`).join('')}
+  </svg>`;
+}
+function shade(hex, amt){
+  let c = hex.replace('#',''); let n = parseInt(c,16);
+  let r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+  const f = x=>Math.max(0,Math.min(255,Math.round(x + (amt<0? x*amt : (255-x)*amt))));
+  return '#'+[f(r),f(g),f(b)].map(v=>v.toString(16).padStart(2,'0')).join('');
+}
+const fmt = n => n.toLocaleString('ru-RU').replace(/ /g,' ') + ' ₽';
+const byId = id => PRODUCTS.find(p=>p.id===id);
+
+/* ---------- STORAGE ---------- */
+let cart = [];
+try{ cart = JSON.parse(localStorage.getItem('th_cart')||'[]').filter(i=>byId(i.id)); }catch(e){ cart=[]; }
+function saveCart(){ try{ localStorage.setItem('th_cart', JSON.stringify(cart)); }catch(e){} }
+
+/* ---------- CATALOG ---------- */
+const F = {type:'all', pet:'all', size:'any', sort:'pop'};
+function stockState(p){
+  const total = p.sizes.filter(s=>s.q>0).length;
+  if(total===p.sizes.length) return {cls:'ok', t:'В наличии все размеры'};
+  return {cls:'part', t:'Часть размеров — пошив за 7 дней'};
+}
+function renderGrid(){
+  let list = PRODUCTS.filter(p => (F.type==='all'||p.type===F.type) && (F.pet==='all'||p.pet===F.pet));
+  if(F.size!=='any') list = list.filter(p=>p.sizes.some(s=>s.s===F.size && s.q>0));
+  list.sort((a,b)=> F.sort==='asc'? a.price-b.price : F.sort==='desc'? b.price-a.price : a.pop-b.pop);
+  document.getElementById('resultLine').textContent = list.length ? `Найдено: ${list.length} ${plural(list.length,['модель','модели','моделей'])}` + (F.size!=='any'?` с размером ${F.size} на складе`:'') : '';
+  const g = document.getElementById('grid');
+  if(!list.length){ g.innerHTML = `<div class="empty" style="grid-column:1/-1">Под эти условия моделей нет. <button class="link" id="resetF">Сбросить фильтры</button><br><span class="hint">Нужного размера нет на складе? Любую модель можно сшить под заказ за 7 рабочих дней.</span></div>`;
+    document.getElementById('resetF').onclick = resetFilters; return; }
+  g.innerHTML = list.map(p=>{
+    const st = stockState(p);
+    return `<article class="card">
+      <div class="card-img" data-open="${p.id}">${p.badge?`<span class="badge ${p.type==='winter'?'alt':''}">${p.badge}</span>`:''}${svgFor(p,p.colors[0].c)}</div>
+      <div class="card-body">
+        <span class="hint">${TYPE_NAMES[p.type]} · ${p.pet==='cat'?'для кошек':'для собак'}</span>
+        <h3>${p.name}</h3>
+        <p class="card-desc">${p.desc}</p>
+        <div class="sizes">${p.sizes.map(s=>`<span class="sz ${s.q?'':'out'}" title="${s.q?'в наличии':'нет в наличии — пошив под заказ'}">${s.s}</span>`).join('')}</div>
+        <span class="stock ${st.cls}">● ${st.t}</span>
+        <div class="price-row"><span class="price">${fmt(p.price)}</span><span class="unit">${p.unit}</span></div>
+        <div class="card-actions"><button class="btn btn-primary btn-sm" data-open="${p.id}">Выбрать размер</button></div>
+      </div></article>`;
+  }).join('');
+}
+function plural(n, f){ const m10=n%10, m100=n%100; return f[(m10===1&&m100!==11)?0:(m10>=2&&m10<=4&&(m100<10||m100>=20))?1:2]; }
+function resetFilters(){ Object.assign(F,{type:'all',pet:'all',size:'any',sort:'pop'});
+  document.querySelectorAll('#fType .chip,#fPet .chip').forEach(c=>c.classList.toggle('on',c.dataset.v==='all'));
+  document.getElementById('fSize').value='any'; document.getElementById('fSort').value='pop'; renderGrid(); }
+function bindChips(id,key){ document.getElementById(id).addEventListener('click',e=>{ const b=e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('#'+id+' .chip').forEach(c=>c.classList.remove('on')); b.classList.add('on'); F[key]=b.dataset.v; renderGrid(); }); }
+bindChips('fType','type'); bindChips('fPet','pet');
+document.getElementById('fSize').onchange = e=>{F.size=e.target.value; renderGrid();};
+document.getElementById('fSort').onchange = e=>{F.sort=e.target.value; renderGrid();};
+document.getElementById('grid').addEventListener('click', e=>{ const o=e.target.closest('[data-open]'); if(o) openProduct(o.dataset.open); });
+
+/* ---------- PRODUCT MODAL ---------- */
+let PM = null; // {p, color, size, qty, notified}
+function openProduct(id, presetSize){
+  const p = byId(id); PM = {p, color:0, size:null, qty:1, notified:false};
+  if(presetSize && p.sizes.find(s=>s.s===presetSize)) PM.size = presetSize;
+  renderPM(); show('productModal');
+}
+function renderPM(){
+  const {p} = PM; const sz = p.sizes.find(s=>s.s===PM.size);
+  const out = sz && sz.q===0;
+  let action = '';
+  if(!sz) action = `<button class="btn btn-primary" disabled>Выберите размер</button>`;
+  else if(!out) action = `<button class="btn btn-primary" id="addBtn">В корзину · ${fmt(p.price*PM.qty)}</button>`;
+  const sameType = PRODUCTS.filter(x=>x.type===p.type && x.id!==p.id && x.pet===p.pet && (!sz||x.sizes.some(s=>s.s===sz.s&&s.q>0)));
+  document.getElementById('productModal').innerHTML = `
+  <button class="close" data-close aria-label="Закрыть">×</button>
+  <div class="pm">
+    <div class="pm-img">${svgFor(p,p.colors[PM.color].c)}</div>
+    <div class="pm-info">
+      <span class="hint">${TYPE_NAMES[p.type]} · ${p.pet==='cat'?'для кошек':'для собак'}</span>
+      <h2>${p.name}</h2>
+      <p class="card-desc">${p.desc}</p>
+      <div class="specs">${p.specs.map(s=>`<div><span>${s[0]}</span><span>${s[1]}</span></div>`).join('')}</div>
+      <div class="opt-title">Цвет: ${p.colors[PM.color].n}</div>
+      <div class="swatches">${p.colors.map((c,i)=>`<button class="sw ${i===PM.color?'on':''}" style="background:${c.c}" data-color="${i}" aria-label="${c.n}" title="${c.n}"></button>`).join('')}</div>
+      <div class="opt-title">Размер ${p.pet==='dog'&&!p.long&&p.kind!=='boots'&&p.kind!=='snood'?'<button class="link" id="toSize" style="font-size:13px;margin-left:8px">не знаю размер</button>':''}</div>
+      <div class="size-btns">${p.sizes.map(s=>`<button class="sbtn ${s.q?'':'out'} ${PM.size===s.s?'on':''}" data-size="${s.s}">${s.s}<small>${s.h}</small><small>${s.q?'есть':'нет'}</small></button>`).join('')}</div>
+      ${sz && !out ? `<div class="stock-msg" style="color:var(--ok)">✓ На складе ${sz.q} шт. Отправим ${sz.q<=2?'— последние ':''}завтра</div>`:''}
+      ${out ? `<div class="oos">
+          <h4>Размера ${sz.s} сейчас нет на складе</h4>
+          Ближайшее поступление — через 2–3 недели. Что можно сделать прямо сейчас:
+          <div class="opts">
+            <div class="opt"><div><b>Сшить под заказ</b><p>Та же цена ${fmt(p.price)}, готово через 7 рабочих дней. Менеджер позвонит и сверит мерки.</p></div><button class="btn btn-primary btn-sm" id="preBtn">Заказать пошив</button></div>
+            <div class="opt" style="display:block"><div><b>Сообщить о поступлении</b><p>Напишем на e-mail, как только размер вернётся.</p></div>
+              ${PM.notified ? `<p style="color:var(--ok);font-weight:700;margin-top:6px">✓ Готово: напишем на ${PM.notified}</p>` :
+              `<div class="notify-form"><input id="notifyEmail" type="email" placeholder="ваш e-mail"><button class="btn btn-soft btn-sm" id="notifyBtn">Ок</button></div><div class="err" id="notifyErr">Проверьте e-mail</div>`}</div>
+            <div class="opt"><div><b>Похожие модели</b><p>${sameType.length? sameType.map(x=>x.name).join(', ') + ' — размер ' + sz.s + ' есть' : 'Других моделей этого типа с размером ' + sz.s + ' пока нет'}</p></div>${sameType.length?`<button class="btn btn-soft btn-sm" id="simBtn">Показать</button>`:''}</div>
+          </div></div>` : ''}
+      ${!out ? `<div class="buy-row">
+        <span class="price">${fmt(p.price)}</span><span class="unit">${p.unit}</span>
+        ${sz?`<div class="qty"><button data-q="-1" aria-label="Меньше">−</button><span>${PM.qty}</span><button data-q="1" aria-label="Больше">+</button></div>`:''}
+      </div><div style="margin-top:14px">${action}</div>`:''}
+      <p class="hint" style="margin-top:14px">Доставка по СПб — 350 ₽ (бесплатно от 5 000 ₽), СДЭК — от 250 ₽. Обмен размера в течение 14 дней — первый бесплатно.</p>
+    </div>
+  </div>`;
+}
+document.getElementById('productModal').addEventListener('click', e=>{
+  const t = e.target;
+  const c = t.closest('[data-color]'); if(c){ PM.color=+c.dataset.color; renderPM(); return; }
+  const s = t.closest('[data-size]'); if(s){ PM.size=s.dataset.size; PM.qty=1; PM.notified=false; renderPM(); return; }
+  const q = t.closest('[data-q]'); if(q){ const sz=PM.p.sizes.find(x=>x.s===PM.size); PM.qty=Math.max(1,Math.min(sz.q,PM.qty+(+q.dataset.q))); if(PM.qty===sz.q && +q.dataset.q>0) toast(`На складе только ${sz.q} шт`); renderPM(); return; }
+  if(t.id==='addBtn'){ addToCart(PM.p.id, PM.size, PM.color, PM.qty, false); hideAll(); toast('Добавлено в корзину'); openDrawer(); return; }
+  if(t.id==='preBtn'){ addToCart(PM.p.id, PM.size, PM.color, 1, true); hideAll(); toast('Пошив под заказ добавлен в корзину'); openDrawer(); return; }
+  if(t.id==='notifyBtn'){ const v=document.getElementById('notifyEmail').value.trim(); if(!/^\S+@\S+\.\S+$/.test(v)){ document.getElementById('notifyErr').style.display='block'; return;} PM.notified=v; renderPM(); return; }
+  if(t.id==='simBtn'){ const size=PM.size, type=PM.p.type, pet=PM.p.pet; hideAll(); Object.assign(F,{type,pet,size:(['XS','S','M','L'].includes(size)?size:'any')});
+    document.querySelectorAll('#fType .chip').forEach(c=>c.classList.toggle('on',c.dataset.v===type)); document.querySelectorAll('#fPet .chip').forEach(c=>c.classList.toggle('on',c.dataset.v===pet));
+    document.getElementById('fSize').value=F.size; renderGrid(); document.getElementById('catalog').scrollIntoView(); return; }
+  if(t.id==='toSize'){ hideAll(); document.getElementById('size').scrollIntoView(); }
+});
+
+/* ---------- CART ---------- */
+function addToCart(id,size,color,qty,pre){
+  const ex = cart.find(i=>i.id===id&&i.size===size&&i.color===color&&i.pre===pre);
+  const max = pre?5:byId(id).sizes.find(s=>s.s===size).q;
+  if(ex) ex.qty=Math.min(max,ex.qty+qty); else cart.push({id,size,color,qty,pre});
+  saveCart(); renderCart();
+}
+const subtotal = ()=>cart.reduce((s,i)=>s+byId(i.id).price*i.qty,0);
+const hasPre = ()=>cart.some(i=>i.pre);
+function renderCart(){
+  const n = cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent = n;
+  const body = document.getElementById('drBody'), foot = document.getElementById('drFoot');
+  if(!cart.length){ body.innerHTML = `<div class="empty" style="margin-top:20px">Корзина пуста.<br><br><button class="btn btn-primary btn-sm" data-goto="catalog">Перейти в каталог</button></div>`; foot.innerHTML=''; return; }
+  body.innerHTML = cart.map((i,idx)=>{ const p=byId(i.id); return `<div class="ci">
+    <div class="ci-img">${svgFor(p,p.colors[i.color].c)}</div>
+    <div><h4>${p.name}</h4><div class="meta">Размер ${i.size} · ${p.colors[i.color].n}</div><div class="meta">${fmt(p.price)} ${p.unit}</div>${i.pre?'<span class="pre">Пошив под заказ · +7 раб. дней</span>':''}</div>
+    <div class="ci-right"><b>${fmt(p.price*i.qty)}</b><div class="qty"><button data-ci="${idx}" data-d="-1">−</button><span>${i.qty}</span><button data-ci="${idx}" data-d="1">+</button></div><button class="rm" data-rm="${idx}">Удалить</button></div>
+  </div>`}).join('');
+  const sub = subtotal(), left = FREE_FROM - sub;
+  foot.innerHTML = `
+    <div class="sumline"><span>Товары (${n} шт)</span><b>${fmt(sub)}</b></div>
+    <div class="hint">${left>0?`До бесплатной курьерской доставки по СПб — ${fmt(left)}`:'Курьерская доставка по СПб — бесплатно'}</div>
+    <div class="progress"><i style="width:${Math.min(100,sub/FREE_FROM*100)}%"></i></div>
+    <div class="hint" style="margin-bottom:12px">Доставка: курьер по СПб 350 ₽ · СДЭК 250–450 ₽ · самовывоз 0 ₽. Выбор — на следующем шаге.</div>
+    ${hasPre()?'<div class="note" style="margin:0 0 12px">В заказе есть пошив: менеджер позвонит, чтобы сверить мерки, оплата — онлайн после звонка.</div>':''}
+    <button class="btn btn-primary btn-block" id="toCheckout">Оформить заказ</button>`;
+}
+document.getElementById('drawer').addEventListener('click', e=>{
+  const t=e.target;
+  if(t.dataset.ci!==undefined){ const i=cart[+t.dataset.ci]; const p=byId(i.id); const max=i.pre?5:p.sizes.find(s=>s.s===i.size).q;
+    i.qty+= +t.dataset.d; if(i.qty>max){ i.qty=max; toast(`На складе только ${max} шт`);} if(i.qty<1) cart.splice(+t.dataset.ci,1); saveCart(); renderCart(); }
+  if(t.dataset.rm!==undefined){ cart.splice(+t.dataset.rm,1); saveCart(); renderCart(); }
+  if(t.id==='toCheckout'){ openCheckout(); }
+  if(t.dataset.goto){ hideAll(); document.getElementById(t.dataset.goto).scrollIntoView(); }
+});
+function openDrawer(){ renderCart(); document.getElementById('overlay').classList.add('show'); document.getElementById('drawer').classList.add('show'); }
+document.getElementById('cartBtn').onclick = openDrawer;
+
+/* ---------- CHECKOUT ---------- */
+const CO = {delivery:'courier', pay:'online', step:'form', order:null};
+function deliveryCost(){ const d=DELIVERY[CO.delivery]; if(d.free && subtotal()>=d.free) return 0; return d.price; }
+function payAllowed(){ return DELIVERY[CO.delivery].cod && !hasPre(); }
+function openCheckout(){
+  if(!cart.length) return;
+  CO.step='form'; if(!payAllowed()) CO.pay='online';
+  document.getElementById('drawer').classList.remove('show');
+  renderCO(); show('checkoutModal');
+}
+function renderCO(){
+  const m = document.getElementById('checkoutModal');
+  if(CO.step==='form'){
+    const vals = {}; m.querySelectorAll('input,select,textarea').forEach(el=>{ if(el.id) vals[el.id] = el.type==='checkbox'?el.checked:el.value; });
+    const sub=subtotal(), dc=deliveryCost(), total=sub+dc;
+    const dOpt = (k)=>{ const d=DELIVERY[k]; const price = (d.free&&sub>=d.free)?0:d.price; return `<label class="radio"><input type="radio" name="dl" value="${k}" ${CO.delivery===k?'checked':''}><div><b>${d.name}</b><span>${d.term}${hasPre()?' + 7 раб. дней на пошив':''}</span></div><span class="pr">${price?fmt(price):'бесплатно'}</span></label>`; };
+    const addr = CO.delivery==='courier' ? `<div class="field" data-f="addr"><label for="cAddr">Адрес в пределах КАД</label><input id="cAddr" placeholder="Улица, дом, квартира" value="${esc(vals.cAddr||'')}"><div class="err">Укажите адрес доставки</div></div>
+      <div class="field"><label for="cTime">Интервал (на следующий день)</label><select id="cTime">${['10:00–13:00','13:00–16:00','16:00–19:00','19:00–22:00'].map(t=>`<option ${vals.cTime===t?'selected':''}>${t}</option>`).join('')}</select></div>`
+      : CO.delivery.startsWith('cdek') ? `<div class="field" data-f="city"><label for="cCity">Город</label><input id="cCity" placeholder="${CO.delivery==='cdek_spb'?'Санкт-Петербург, Гатчина, Всеволожск…':'Москва, Казань, Екатеринбург…'}" value="${esc(vals.cCity||'')}"><div class="err">Укажите город</div></div>
+      <div class="field" data-f="pvz"><label for="cPvz">Адрес пункта выдачи СДЭК</label><input id="cPvz" placeholder="Например: ул. Ленина, 10" value="${esc(vals.cPvz||'')}"><div class="err">Укажите пункт выдачи</div></div>`
+      : `<div class="note" style="margin-top:0">Шоурум: ул. Кирочная, 24, м. Чернышевская. Пн–Пт 11–20, Сб–Вс 12–18. Придёт SMS, когда заказ будет собран; хранение 5 дней.</div>`;
+    const cod = payAllowed();
+    m.innerHTML = `<button class="close" data-close aria-label="Закрыть">×</button>
+    <form class="co" id="coForm" novalidate>
+      <div class="co-main">
+        <h2 style="font-size:22px">Оформление заказа</h2>
+        <div class="step"><h3><i>1</i>Получатель</h3>
+          <div class="form-row">
+            <div class="field" data-f="name"><label for="cName">Имя</label><input id="cName" autocomplete="name" value="${esc(vals.cName||'')}"><div class="err">Укажите имя</div></div>
+            <div class="field" data-f="phone"><label for="cPhone">Телефон</label><input id="cPhone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" value="${esc(vals.cPhone||'')}"><div class="err">Нужен телефон в формате +7 XXX XXX-XX-XX</div></div>
+          </div>
+          <div class="field" data-f="email"><label for="cEmail">E-mail — для чека и ссылки на оплату</label><input id="cEmail" type="email" autocomplete="email" value="${esc(vals.cEmail||'')}"><div class="err">Проверьте e-mail</div></div>
+        </div>
+        <div class="step"><h3><i>2</i>Доставка</h3>
+          ${Object.keys(DELIVERY).map(dOpt).join('')}
+          <div style="margin-top:10px">${addr}</div>
+        </div>
+        <div class="step"><h3><i>3</i>Оплата</h3>
+          <label class="radio"><input type="radio" name="pay" value="online" ${CO.pay==='online'?'checked':''}><div><b>Онлайн: карта или СБП</b><span>${hasPre()?'после звонка менеджера — пришлём ссылку на оплату':'сразу после оформления'}</span></div></label>
+          <label class="radio ${cod?'':'dis'}"><input type="radio" name="pay" value="cod" ${CO.pay==='cod'?'checked':''} ${cod?'':'disabled'}><div><b>При получении: карта или наличные</b><span>${cod?'курьеру или в шоуруме':hasPre()?'недоступно для пошива под заказ':'доступно только для курьера по СПб и самовывоза'}</span></div></label>
+        </div>
+        <div class="field"><label for="cComment">Комментарий (необязательно)</label><textarea id="cComment" rows="2" placeholder="Порода и мерки, если сомневаетесь в размере">${esc(vals.cComment||'')}</textarea></div>
+      </div>
+      <div class="co-side">
+        <h3>Ваш заказ</h3>
+        <div class="mini-items">${cart.map(i=>{const p=byId(i.id);return `<div><span>${p.name}, ${i.size}, ${p.colors[i.color].n.toLowerCase()} × ${i.qty}${i.pre?' <span class="pre" style="display:inline-block;background:var(--warn);font-size:11px;border-radius:5px;padding:0 5px">пошив</span>':''}</span><b>${fmt(p.price*i.qty)}</b></div>`}).join('')}</div>
+        <div class="sumline"><span>Товары</span><b>${fmt(sub)}</b></div>
+        <div class="sumline"><span>Доставка</span><b>${dc?fmt(dc):'бесплатно'}</b></div>
+        <div class="sumline total"><span>Итого</span><span>${fmt(total)}</span></div>
+        <p class="hint">Срок: ${DELIVERY[CO.delivery].term}${hasPre()?' + 7 рабочих дней на пошив':''}.</p>
+        <div class="field" data-f="agree"><label class="check"><input type="checkbox" id="cAgree" ${vals.cAgree?'checked':''}><span>Согласен с <a href="#terms" data-close>условиями оплаты, доставки и возврата</a> и обработкой персональных данных</span></label><div class="err">Нужно согласие с условиями</div></div>
+        <button class="btn btn-primary btn-block" type="submit">${CO.pay==='online'&&!hasPre()?'Перейти к оплате':'Подтвердить заказ'} · ${fmt(total)}</button>
+        <p class="demo">Учебный сайт: данные никуда не отправляются.</p>
+      </div>
+    </form>`;
+  } else if(CO.step==='pay'){
+    m.innerHTML = `<button class="close" data-close aria-label="Закрыть">×</button><div class="success">
+      <h2>Оплата заказа ${CO.order.no}</h2><p class="hint">Заказ создан и зарезервирован на 24 часа.</p>
+      <div class="pay-box"><div class="sumline total" style="margin:0 0 14px"><span>К оплате</span><span>${fmt(CO.order.total)}</span></div>
+        <button class="btn btn-primary btn-block" id="payCard">Оплатить картой</button>
+        <button class="btn btn-soft btn-block" id="paySbp" style="margin-top:8px">Оплатить через СБП</button>
+        <button class="link" id="payFail" style="margin-top:14px">Не получается оплатить?</button>
+        <div id="failBox"></div>
+        <p class="demo">Демонстрация: деньги не списываются.</p></div></div>`;
+  } else {
+    const o=CO.order;
+    const steps = o.pre ? [`Менеджер позвонит на ${o.phone} в течение 2 рабочих часов и сверит мерки питомца.`, `Пришлём ссылку на оплату на ${o.email}. Пошив начнётся после оплаты и займёт 7 рабочих дней.`, `Когда заказ будет готов, ${o.dname==='Самовывоз из шоурума'?'пришлём SMS — можно забирать в шоуруме':'передадим его в доставку («'+o.dname+'»)'}.`]
+      : o.pay==='online' ? [`Оплата получена, чек отправлен на ${o.email}.`, `${o.dname}: ${o.term}. Накануне пришлём SMS с номером для отслеживания.`, 'Размер не подошёл? Первый обмен — бесплатно в течение 14 дней.']
+      : [`Мы позвоним на ${o.phone}, чтобы подтвердить заказ.`, `${o.dname}: ${o.term}. Оплата картой или наличными при получении — ${fmt(o.total)}.`, o.dname==='Курьер по СПб'?'Курьер подождёт 15 минут, пока вы примеряете вещь на питомца.':'Можно прийти с питомцем и примерить на месте.'];
+    m.innerHTML = `<button class="close" data-close aria-label="Закрыть">×</button><div class="success">
+      <div class="big">🐾</div><h2>Заказ ${o.no} ${o.paid?'оплачен':'принят'}</h2>
+      <p class="hint">Сумма: ${fmt(o.total)} · ${o.dname}</p>
+      <ol>${steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+      <p class="hint">Изменить или отменить заказ можно до передачи в доставку — через форму «Связаться» или по телефону.</p>
+      <button class="btn btn-primary" data-close>Вернуться в магазин</button></div>`;
+  }
+}
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+const cm = document.getElementById('checkoutModal');
+cm.addEventListener('change', e=>{
+  if(e.target.name==='dl'){ CO.delivery=e.target.value; if(!payAllowed()) CO.pay='online'; renderCO(); }
+  if(e.target.name==='pay'){ CO.pay=e.target.value; renderCO(); }
+});
+cm.addEventListener('submit', e=>{
+  e.preventDefault();
+  const v = id=>(document.getElementById(id)||{}).value?.trim()||'';
+  const checks = [['name', v('cName').length>=2], ['phone', /^(\+7|8)\D*\d{3}\D*\d{3}\D*\d{2}\D*\d{2}$/.test(v('cPhone'))], ['email', /^\S+@\S+\.\S+$/.test(v('cEmail'))], ['agree', document.getElementById('cAgree').checked]];
+  if(CO.delivery==='courier') checks.push(['addr', v('cAddr').length>=5]);
+  if(CO.delivery.startsWith('cdek')){ checks.push(['city', v('cCity').length>=2]); checks.push(['pvz', v('cPvz').length>=3]); }
+  let ok = true;
+  checks.forEach(([f,good])=>{ const el=cm.querySelector(`[data-f="${f}"]`); if(el) el.classList.toggle('bad',!good); if(!good) ok=false; });
+  if(!ok){ const first=cm.querySelector('.field.bad input'); if(first) first.focus(); toast('Проверьте выделенные поля'); return; }
+  const d = DELIVERY[CO.delivery];
+  CO.order = {no:'ТХ-'+Math.floor(10000+Math.random()*89999), total:subtotal()+deliveryCost(), pay:CO.pay, pre:hasPre(), phone:v('cPhone'), email:v('cEmail'), dname:d.name, term:d.term, paid:false};
+  if(CO.pay==='online' && !CO.order.pre){ CO.step='pay'; } else { CO.step='done'; cart=[]; saveCart(); renderCart(); }
+  renderCO();
+});
+cm.addEventListener('click', e=>{
+  if(e.target.id==='payCard'||e.target.id==='paySbp'){ CO.order.paid=true; CO.step='done'; cart=[]; saveCart(); renderCart(); renderCO(); }
+  if(e.target.id==='payFail'){ document.getElementById('failBox').innerHTML = `<div class="note" style="text-align:left">Заказ ${CO.order.no} не отменён и ждёт оплаты 24 часа. Что можно сделать:<ul style="margin:6px 0 0;padding-left:18px"><li>оплатить через СБП вместо карты;</li><li>повторить оплату позже по ссылке из письма на ${esc(CO.order.email)};</li><li>если деньги списались, а заказ не оплачен — напишите нам номер заказа, проверим за 1 рабочий день.</li></ul></div>`; }
+});
+
+/* ---------- SIZE FINDER ---------- */
+const SIZE_T = [{s:'XS',b:[20,24],c:[28,34]},{s:'S',b:[25,29],c:[34,40]},{s:'M',b:[30,34],c:[40,47]},{s:'L',b:[35,40],c:[47,55]}];
+let isLong=false;
+document.getElementById('presets').addEventListener('click', e=>{ const b=e.target.closest('.chip'); if(!b) return;
+  document.getElementById('mBack').value=b.dataset.b; document.getElementById('mChest').value=b.dataset.c; isLong=!!b.dataset.long; calcSize(); });
+['mBack','mChest'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{isLong=false;}));
+document.getElementById('calcBtn').onclick = calcSize;
+function idx(val, key){ for(let i=0;i<SIZE_T.length;i++){ const [a,b]=SIZE_T[i][key]; if(val<=b) return val<a && i===0 ? -1 : i; } return 99; }
+function calcSize(){
+  const b=+document.getElementById('mBack').value, c=+document.getElementById('mChest').value, r=document.getElementById('sizeResult');
+  if(!b||!c){ r.className='size-result'; r.innerHTML='<span style="color:var(--bad)">Введите обе мерки в сантиметрах.</span>'; return; }
+  let html='';
+  if(isLong || (b>=30 && c>0 && b/c>0.85)){
+    const sz = b<=38?'Мини':'Стандарт';
+    html = `<div class="big">${sz}</div><b>Похоже на таксу или похожее сложение:</b> длинная спина при узкой груди. Обычные модели будут коротки — берите комбинезон «Длинный», размер ${sz}.<div style="margin-top:10px"><button class="btn btn-primary btn-sm" data-pick="dlinny" data-ps="${sz}">Открыть «Длинный»</button></div>`;
+  } else {
+    const ib=idx(b,'b'), ic=idx(c,'c');
+    if(ib===-1&&ic===-1){ html = `<b>Меньше XS.</b> Для таких крох шьём под заказ по меркам за 7 рабочих дней — напишите нам через форму «Связаться».`; }
+    else if(ib===99||ic===99){ html = `<b>Больше L.</b> Готовых размеров нет, но мы сошьём любую модель по меркам за 7 рабочих дней — напишите нам через форму «Связаться».`; }
+    else {
+      const i = Math.max(ib,ic,0), s=SIZE_T[i].s;
+      const diff = Math.abs(Math.max(ib,0)-Math.max(ic,0));
+      const avail = PRODUCTS.filter(p=>p.pet==='dog'&&p.sizes.some(x=>x.s===s&&x.q>0));
+      html = `<div class="big">${s}</div>${diff?'Мерки попадают в разные размеры — выбрали больший, чтобы вещь не жала в груди. ':''}${diff>1?'<br><b>Разница в два размера</b> — советуем пошив по меркам, чтобы вещь хорошо села. ':''}
+      <div class="hint" style="margin-top:6px">В размере ${s} на складе: ${avail.map(p=>p.name).join(', ')}.</div>
+      <div style="margin-top:10px"><button class="btn btn-primary btn-sm" data-filter="${s}">Показать модели размера ${s}</button></div>`;
+    }
+  }
+  r.className='size-result done'; r.innerHTML=html;
+}
+document.getElementById('sizeResult').addEventListener('click', e=>{
+  const f=e.target.dataset.filter; if(f){ Object.assign(F,{type:'all',pet:'dog',size:f}); document.querySelectorAll('#fType .chip').forEach(c=>c.classList.toggle('on',c.dataset.v==='all')); document.querySelectorAll('#fPet .chip').forEach(c=>c.classList.toggle('on',c.dataset.v==='dog')); document.getElementById('fSize').value=f; renderGrid(); document.getElementById('catalog').scrollIntoView(); }
+  if(e.target.dataset.pick){ openProduct(e.target.dataset.pick, e.target.dataset.ps); }
+});
+
+/* ---------- ASK FORM ---------- */
+document.getElementById('askForm').addEventListener('submit', e=>{
+  e.preventDefault(); const f=e.target; const v=id=>document.getElementById(id).value.trim();
+  const checks=[['name',v('aName').length>=2],['contact',/^\S+@\S+\.\S+$/.test(v('aContact'))||/\d{10,}/.test(v('aContact').replace(/\D/g,''))],['msg',v('aMsg').length>=3]];
+  let ok=true; checks.forEach(([k,g])=>{ f.querySelector(`[data-f="${k}"]`).classList.toggle('bad',!g); if(!g) ok=false; });
+  if(!ok) return;
+  const d=document.getElementById('askDone'); d.style.display='block';
+  d.innerHTML=`Спасибо, ${esc(v('aName'))}! Обращение по теме «${esc(v('aTopic'))}» записано. Ответим на ${esc(v('aContact'))} в течение 2 часов (с 10:00 до 21:00).<br><span class="hint">Учебный сайт: сообщение никуда не отправляется.</span>`;
+  f.querySelectorAll('input,textarea').forEach(i=>i.value='');
+});
+
+/* ---------- COMMON ---------- */
+function show(id){ document.getElementById('overlay').classList.add('show'); document.getElementById(id).classList.add('show'); }
+function hideAll(){ ['overlay','productModal','checkoutModal'].forEach(i=>document.getElementById(i).classList.remove('show')); document.getElementById('drawer').classList.remove('show'); }
+document.addEventListener('click', e=>{ if(e.target.closest('[data-close]') || e.target.id==='overlay') hideAll(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') hideAll(); });
+let tt; function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>el.classList.remove('show'),2200); }
+document.getElementById('burger').onclick=()=>document.getElementById('menu').classList.toggle('open');
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+
+// hero + measure art
+document.getElementById('heroArt').insertAdjacentHTML('beforeend', svgFor(byId('kupchino'),'#E2603C'));
+document.getElementById('measureDog').innerHTML = svgFor({kind:'none'},'#fff').replace(/<\/?svg[^>]*>/g,'');
+renderGrid(); renderCart();
+</script>
+</body>
+</html>
